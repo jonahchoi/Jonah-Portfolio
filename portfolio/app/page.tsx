@@ -5,6 +5,7 @@ import About from './About';
 import Projects from './Projects';
 import TechList from './TechList';
 import Nav from './Nav';
+import Menu from './Menu';
 import { Element, scroller } from 'react-scroll';
 
 interface SectionPositions {
@@ -19,6 +20,10 @@ const sectionNames = ['Home', 'About', 'Tech', 'Projects'];
 const Page = (): JSX.Element => {
   const [currentSection, setCurrentSection] = useState<string>('');
   const [lastScrollTime, setLastScrollTime] = useState(0);
+
+  const updateSection = (section: string): void => {
+    setCurrentSection(section)
+  }
 
   const handleWheel = useCallback((event: WheelEvent) => {
     event.preventDefault();
@@ -91,19 +96,21 @@ const Page = (): JSX.Element => {
 
   return (
     <div>
-      <Nav />
-      <Element className="h-screen" name="Home" data-section="Home">
+      <Menu />
+      <Nav updateSection={updateSection} currentSection={currentSection} />
+      <Element name="Home" data-section="Home">
         <HomePage />
       </Element>
-      <Element className="h-screen bg-gray-400" name="About" data-section="About">
+      <Element name="About" data-section="About">
         <About />
       </Element>
-      <Element className="h-screen" name="Tech" data-section="Tech">
+      <Element name="Tech" data-section="Tech">
         <TechList />
       </Element>
-      <Element className="h-screen" name="Projects" data-section="Projects">
+      <Element name="Projects" data-section="Projects">
         <Projects />
       </Element>
+      {/* <div className='fixed top-1'>{currentSection}</div> */}
     </div>
   );
 };

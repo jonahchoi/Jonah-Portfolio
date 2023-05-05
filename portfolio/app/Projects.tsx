@@ -2,12 +2,12 @@ import React from 'react'
 
 const Projects = () => {
   return (
-    <div className=''>
+    <section className='h-screen'>
       <h2>Projects</h2>
       Project1
       Project2
       Project3
-    </div>
+    </section>
   )
 }
 

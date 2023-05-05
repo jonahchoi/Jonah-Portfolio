@@ -61,9 +61,9 @@ const TechList = () => {
   ]
 
   return (
-    <div className='flex justify-center items-center'>
+    <section className='h-screen flex justify-center items-center'>
       {techList.map((tech) => <TechBox key={tech.name} name={tech.name} icon={tech.icon} />)}
-    </div>
+    </section>
   )
 }
 
