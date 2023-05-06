@@ -41,27 +41,27 @@ const TechList = () => {
       name: 'Firebase',
       icon: <DiFirebase />
     },
-    {
-      name: 'NGINX',
-      icon: <DiNginx />
-    },
-    {
-      name: 'Git',
-      icon: <DiGit />
-    },
-    {
-      name: 'npm',
-      icon: <DiNpm />
-    },
-    {
-      name: 'Jest',
-      icon: <SiJest />
-    },
+    // {
+    //   name: 'NGINX',
+    //   icon: <DiNginx />
+    // },
+    // {
+    //   name: 'Git',
+    //   icon: <DiGit />
+    // },
+    // {
+    //   name: 'npm',
+    //   icon: <DiNpm />
+    // },
+    // {
+    //   name: 'Jest',
+    //   icon: <SiJest />
+    // },
 
   ]
 
   return (
-    <section className='h-screen flex justify-center items-center'>
+    <section className='flex justify-center items-center gap-5'>
       {techList.map((tech) => <TechBox key={tech.name} name={tech.name} icon={tech.icon} />)}
     </section>
   )

@@ -3,10 +3,12 @@ import React, { useCallback, useEffect, useState } from 'react';
 import HomePage from './HomePage';
 import About from './About';
 import Projects from './Projects';
+import Contact from './Contact';
 import TechList from './TechList';
 import Nav from './Nav';
 import Menu from './Menu';
 import { Element, scroller } from 'react-scroll';
+import { sectionNames } from '../src/tools/sections.js'
 
 interface SectionPositions {
   [key: string]: {
@@ -15,7 +17,6 @@ interface SectionPositions {
   };
 }
 
-const sectionNames = ['Home', 'About', 'Tech', 'Projects'];
 
 const Page = (): JSX.Element => {
   const [currentSection, setCurrentSection] = useState<string>('');
@@ -104,13 +105,16 @@ const Page = (): JSX.Element => {
       <Element name="About" data-section="About">
         <About />
       </Element>
-      <Element name="Tech" data-section="Tech">
+      {/* <Element name="Tech" data-section="Tech">
         <TechList />
-      </Element>
+      </Element> */}
       <Element name="Projects" data-section="Projects">
         <Projects />
       </Element>
-      {/* <div className='fixed top-1'>{currentSection}</div> */}
+      <Element name="Contact" data-section="Contact">
+        <Contact />
+      </Element>
+
     </div>
   );
 };

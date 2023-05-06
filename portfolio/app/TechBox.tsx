@@ -10,8 +10,8 @@ interface TechBoxProps {
 const TechBox = ({name, icon}: TechBoxProps) => {
   return (
     <div>
-      <div className='text-8xl'>{icon}</div>
-      {name}
+      <div className='text-6xl'>{icon}</div>
+      {/* {name} */}
     </div>
   )
 }
