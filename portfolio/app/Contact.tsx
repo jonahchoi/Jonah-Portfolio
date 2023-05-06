@@ -41,7 +41,8 @@ const Contact = () => {
         </div>
 
 
-        <button type='submit' className='float-right border border-[#808080] py-[10px] px-[50px]'>Submit</button>
+        <button type='submit' className='float-right border border-[#808080] py-[10px] px-[50px] relative z-10 overflow-hidden
+        after:content-[" "] after:bg-white after:w-full after:h-full after:absolute after:top-0 after:left-0 after:z-[-1] after:-translate-x-full hover:text-black hover:after:translate-x-0 after:transition-transform after:duration-300 after:focus:bg-gray-100'>Submit</button>
       </form>
     </section>
   )
