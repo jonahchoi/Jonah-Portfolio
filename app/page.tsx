@@ -1,5 +1,5 @@
 'use client';
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useLayoutEffect, useState } from 'react';
 import HomePage from './HomePage';
 import About from './About';
 import Projects from './Projects';
@@ -20,7 +20,9 @@ interface SectionPositions {
 
 const Page = (): JSX.Element => {
   const [currentSection, setCurrentSection] = useState<string>('');
-  const [lastScrollTime, setLastScrollTime] = useState(0);
+  const [lastScrollTime, setLastScrollTime] = useState<number>(0);
+  const [isMobile, setisMobile] = useState<boolean>(false);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
 
   const updateSection = (section: string): void => {
     setCurrentSection(section)
@@ -62,59 +64,77 @@ const Page = (): JSX.Element => {
     });
   }, []);
 
+  function handleWindowSizeChange() {
+    setisMobile(window.innerWidth < 640);
+  }
   useEffect(() => {
-    const sectionPositions: SectionPositions = {};
-    const sections = document.querySelectorAll('[data-section]');
-    sections.forEach((section) => {
-      const sectionName = (section as HTMLElement).dataset.section || '';
-      const position = section.getBoundingClientRect();
-      sectionPositions[sectionName] = {
-        top: position.top + window.scrollY,
-        bottom: position.bottom + window.scrollY,
-      };
-    });
+    if (!isMobile && !isLoading) {
+      const sectionPositions: SectionPositions = {};
+      const sections = document.querySelectorAll('[data-section]');
+      sections.forEach((section) => {
+        const sectionName = (section as HTMLElement).dataset.section || '';
+        const position = section.getBoundingClientRect();
+        sectionPositions[sectionName] = {
+          top: position.top + window.scrollY,
+          bottom: position.bottom + window.scrollY,
+        };
+      });
 
-    const scrollPosition = window.scrollY;
-    let newCurrentSection = currentSection;
-    for (const [section, position] of Object.entries(sectionPositions)) {
-      if (scrollPosition >= position.top && scrollPosition < position.bottom) {
-        newCurrentSection = section;
-        break;
+      const scrollPosition = window.scrollY;
+      let newCurrentSection = currentSection;
+      for (const [section, position] of Object.entries(sectionPositions)) {
+        if (scrollPosition >= position.top && scrollPosition < position.bottom) {
+          newCurrentSection = section;
+          break;
+        }
       }
-    }
-    if (newCurrentSection !== currentSection) {
       setCurrentSection(newCurrentSection);
+      handleSectionChange(newCurrentSection);
+    }
+  }, [isMobile, isLoading]);
+
+  useEffect(() => {
+    handleWindowSizeChange();
+    setIsLoading(false);
+    window.addEventListener('resize', handleWindowSizeChange);
+    return () => {
+        window.removeEventListener('resize', handleWindowSizeChange);
     }
   }, []);
 
   useEffect(() => {
-    window.addEventListener('wheel', handleWheel, { passive: false });
+    if (!isMobile) {
+      console.log('isnotmobile')
+      window.addEventListener('wheel', handleWheel, { passive: false });
+    }
 
     return () => {
       window.removeEventListener('wheel', handleWheel);
     };
-  }, [handleWheel]);
+  }, [handleWheel, isMobile]);
 
   return (
     <div>
-      <Menu />
-      <Nav updateSection={updateSection} currentSection={currentSection} />
-      <Element name="Home" data-section="Home">
-        <HomePage />
-      </Element>
-      <Element name="About" data-section="About">
-        <About />
-      </Element>
-      {/* <Element name="Tech" data-section="Tech">
-        <TechList />
-      </Element> */}
-      <Element name="Projects" data-section="Projects">
-        <Projects />
-      </Element>
-      <Element name="Contact" data-section="Contact">
-        <Contact />
-      </Element>
-
+      {!isLoading &&
+      <>
+        <Menu />
+        {!isMobile && <Nav updateSection={updateSection} currentSection={currentSection} />}
+        <Element name="Home" data-section="Home">
+          <HomePage />
+        </Element>
+        <Element name="About" data-section="About">
+          <About />
+        </Element>
+        {/* <Element name="Tech" data-section="Tech">
+          <TechList />
+        </Element> */}
+        <Element name="Projects" data-section="Projects">
+          <Projects />
+        </Element>
+        <Element name="Contact" data-section="Contact">
+          <Contact />
+        </Element>
+      </>}
     </div>
   );
 };
