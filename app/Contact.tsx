@@ -5,8 +5,11 @@ import emailjs from '@emailjs/browser';
 const Contact = () => {
   const formRef = useRef(null);
 
-  const sendEmail = (e) => {
+  const sendEmail = (e: React.SyntheticEvent) => {
     e.preventDefault();
+    if (process.env.NEXT_PUBLIC_SERVICE_ID === undefined || process.env.NEXT_PUBLIC_TEMPLATE_ID === undefined || process.env.NEXT_PUBLIC_PUBLIC_KEY === undefined || formRef.current === null) {
+      return;
+    }
 
     emailjs.sendForm(process.env.NEXT_PUBLIC_SERVICE_ID, process.env.NEXT_PUBLIC_TEMPLATE_ID, formRef.current, process.env.NEXT_PUBLIC_PUBLIC_KEY)
       .then((result) => {

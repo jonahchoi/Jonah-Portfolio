@@ -3,8 +3,12 @@ import { Link } from 'react-scroll'
 import { RxCommit } from 'react-icons/rx'
 import { sectionNames } from '@/src/tools/sections'
 
+interface NavProps {
+  updateSection: Function;
+  currentSection: string
+}
 
-const Nav = ({updateSection, currentSection}) => {
+const Nav = ({updateSection, currentSection}: NavProps) => {
 
   return (
     <div className='fixed top-1/2 translate-y-[-50%] right-2 text-red-500 text-4xl'>

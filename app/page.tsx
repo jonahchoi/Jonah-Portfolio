@@ -66,7 +66,7 @@ const Page = (): JSX.Element => {
     const sectionPositions: SectionPositions = {};
     const sections = document.querySelectorAll('[data-section]');
     sections.forEach((section) => {
-      const sectionName = section.dataset.section || '';
+      const sectionName = (section as HTMLElement).dataset.section || '';
       const position = section.getBoundingClientRect();
       sectionPositions[sectionName] = {
         top: position.top + window.scrollY,

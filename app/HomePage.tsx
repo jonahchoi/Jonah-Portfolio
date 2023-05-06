@@ -6,7 +6,7 @@ const HomePage = () => {
     <section className='h-screen flex justify-center items-center gap-28'>
       <div className='flex flex-col gap-5'>
         <h1 className='text-7xl'>Full Stack <br/> Software Engineer</h1>
-        <p>Hi, I'm Jonah Choi. A passionate Software Engineer based in San Diego, CA.</p>
+        <p>Hi, I&apos;m Jonah Choi. A passionate Software Engineer based in San Diego, CA.</p>
         <div className='flex gap-5 items-center my-5'>
           <h3>My Tech:</h3>
           <TechList />
