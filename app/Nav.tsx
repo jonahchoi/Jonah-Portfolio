@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Link } from 'react-scroll'
+import NavLink from './NavLink'
 import { RxCommit } from 'react-icons/rx'
 import { sectionNames } from '@/src/tools/sections'
 
@@ -15,18 +15,12 @@ const Nav = ({updateSection, currentSection}: NavProps) => {
       <ul className='flex flex-col items-center'>
         {sectionNames
         .map((section) => (
-          <li key={section} className='m-0 p-0'>
-            <Link
-              to={section}
-              smooth={true}
-              duration={300}
-              onClick={()=>updateSection(section)}
-              className={`flex items-center m-[-1px] ${section === currentSection ? 'active' : 'inactive'}`}
-            >
+          <li key={section} className='m-0 p-0 cursor-pointer'>
+            <NavLink section={section} updateSection={updateSection} currentSection={currentSection} classNames={`flex items-center m-[-1px] ${section === currentSection ? 'active' : 'inactive'}`}>
               {section === currentSection ?
               <div className='flex justify-center items-center'><RxCommit /><div className='bg-red-500 rounded-full w-3.5 h-3.5 absolute'></div></div>
               : <RxCommit />}
-            </Link>
+            </NavLink>
           </li>
         ))}
       </ul>
