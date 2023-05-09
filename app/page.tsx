@@ -114,7 +114,7 @@ const Page = (): JSX.Element => {
   }, [handleWheel, isMobile]);
 
   return (
-    <div>
+    <div className=''>
       {!isLoading &&
       <>
         <Menu updateSection={updateSection} />

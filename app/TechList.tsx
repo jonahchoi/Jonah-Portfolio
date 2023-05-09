@@ -61,7 +61,7 @@ const TechList = () => {
   ]
 
   return (
-    <section className='flex justify-center items-center gap-5'>
+    <section className='flex justify-center items-center gap-5 flex-wrap'>
       {techList.map((tech) => <TechBox key={tech.name} name={tech.name} icon={tech.icon} />)}
     </section>
   )

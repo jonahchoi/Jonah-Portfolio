@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import NavLink from './NavLink';
 import { FiGithub, FiLinkedin } from 'react-icons/fi'
 import { RiGithubLine, RiLinkedinLine } from 'react-icons/ri'
+import { MdOutlineContactPage,  } from 'react-icons/md'
 
 interface MenuProps {
   updateSection: Function;
@@ -15,7 +16,7 @@ const Menu = ({ updateSection }: MenuProps) => {
   }
 
   return (
-    <div className='fixed top-10 right-14'>
+    <div className='mb-10 md:fixed top-2 right-2 md:top-10 md:right-14 z-50'>
       <div className='relative'>
         <button className='absolute top-10 right-10 flex flex-col justify-center items-center' type='button' onClick={toggleMenu}>
           <div className={`h-1 w-9 my-1 transition ease transform duration-300 ${isOpen
@@ -35,9 +36,9 @@ const Menu = ({ updateSection }: MenuProps) => {
             <NavLink section={'Contact'} updateSection={updateSection} classNames='cursor-pointer'>Contact</NavLink>
           </div>
           <div className='flex gap-5 pt-3 justify-between items-center '>
-            <a href='resume' target='_blank'>Resume</a>
-            <a href='https://www.linkedin.com/in/jonah-choii/' target='_blank'><RiLinkedinLine /></a>
-            <a href='https://github.com/jonahchoi' target='_blank'><RiGithubLine /></a>
+            <a href='resume' target='_blank'><MdOutlineContactPage title='Resume'/></a>
+            <a href='https://www.linkedin.com/in/jonah-choii/' target='_blank' title='LinkedIn'><RiLinkedinLine /></a>
+            <a href='https://github.com/jonahchoi' target='_blank' title='GitHub'><RiGithubLine /></a>
           </div>
         </div>}
       </div>
