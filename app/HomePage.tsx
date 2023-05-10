@@ -2,7 +2,11 @@ import React from 'react'
 import Image from 'next/image'
 import NavLink from './NavLink'
 
-const HomePage = ({ updateSection, currentSection }) => {
+interface HomePageProps {
+  updateSection: Function
+}
+
+const HomePage = ({ updateSection }: HomePageProps) => {
 
   return (
     <section className='h-screen w-screen flex flex-col justify-center items-center md:flex-row '>
@@ -12,7 +16,6 @@ const HomePage = ({ updateSection, currentSection }) => {
         <NavLink
           section='Contact'
           updateSection={updateSection}
-          currentSection={currentSection}
           classNames='self-start'
         >
           <button className='border border-secondary-color text-secondary-color font-bold py-[10px] px-[50px] relative z-10 overflow-hidden self-start cursor-pointer

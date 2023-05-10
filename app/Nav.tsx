@@ -16,7 +16,7 @@ const Nav = ({updateSection, currentSection}: NavProps) => {
         {sectionNames
         .map((section) => (
           <li key={section} className='m-0 p-0 cursor-pointer'>
-            <NavLink section={section} updateSection={updateSection} currentSection={currentSection} classNames={`flex items-center m-[-1px] ${section === currentSection ? 'active' : 'inactive'}`}>
+            <NavLink section={section} updateSection={updateSection} classNames={`flex items-center m-[-1px] ${section === currentSection ? 'active' : 'inactive'}`}>
               {section === currentSection ?
               <div className='flex justify-center items-center'><RxCommit /><div className={`rounded-full w-3.5 h-3.5 absolute transition-color duration-300 ${currentSection === 'Projects' ? 'bg-primary-color' : 'bg-secondary-color'}`}></div></div>
               : <RxCommit />}

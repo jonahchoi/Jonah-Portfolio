@@ -120,7 +120,7 @@ const Page = (): JSX.Element => {
         <Menu updateSection={updateSection} />
         {!isMobile && <Nav updateSection={updateSection} currentSection={currentSection} />}
         <Element name="Home" data-section="Home">
-          <HomePage updateSection={updateSection} currentSection={currentSection} />
+          <HomePage updateSection={updateSection} />
         </Element>
         <Element name="About" data-section="About">
           <About />

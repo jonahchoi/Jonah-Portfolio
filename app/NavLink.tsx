@@ -4,12 +4,11 @@ import { Link } from 'react-scroll'
 interface NavLinkProps {
   section: string;
   updateSection: Function;
-  currentSection?: string;
   children: React.ReactNode;
   classNames: string;
 }
 
-const NavLink = ({section, updateSection, currentSection, children, classNames}: NavLinkProps) => {
+const NavLink = ({section, updateSection, children, classNames}: NavLinkProps) => {
   return (
     <Link
       to={section}
