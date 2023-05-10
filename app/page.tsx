@@ -65,7 +65,7 @@ const Page = (): JSX.Element => {
   }, []);
 
   function handleWindowSizeChange() {
-    setisMobile(window.innerWidth < 640);
+    setisMobile(window.innerWidth < 768);
   }
   useEffect(() => {
     if (!isMobile && !isLoading) {

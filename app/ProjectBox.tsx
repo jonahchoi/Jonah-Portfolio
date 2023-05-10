@@ -13,11 +13,11 @@ interface ProjectProps {
 const ProjectBox = ({ title, description, stack, image, link}: ProjectProps) => {
   // <img src="/docs/images/carousel/carousel-1.svg" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
   return (
-    <div className='w-full flex justify-center items-center gap-10 p-2'>
-      <div className=''>
-        <Image src={image} width={500} height={500} alt='temp'></Image>
+    <div className='w-full flex flex-col justify-center items-center xl:flex-row gap-10 p-2'>
+      <div className='w-[80%] md:w-[70%] xl:w-auto'>
+        <Image src={image} width={500} height={500} alt='Screenshot of project website'></Image>
       </div>
-      <div className='w-[50%]'>
+      <div className='w-[85%] md:w-[50%]'>
         <h2 className='text-3xl'>{title}</h2>
         <p>{description}</p>
         <div>

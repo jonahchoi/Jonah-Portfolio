@@ -22,7 +22,7 @@ const Contact = () => {
   return (
     <section className='h-screen flex flex-col justify-center items-center'>
       <h1 className='text-4xl font-bold md:text-7xl text-secondary-color'>Contact</h1>
-      <p>If you want to reach out or just say hello, fill out the form below and I&apos;ll get back to you as soon as I can!</p>
+      <p className='w-[90%] md:w-[70%] xl:w-[40%] pt-5'>If you want to reach out or just say hello, fill out the form below and I&apos;ll get back to you as soon as I can!</p>
       <form className='w-[90%] md:w-[70%] xl:w-[40%]' ref={formRef} onSubmit={sendEmail}>
         <div className='relative my-[25px]'>
           <input className='border-[#808080] border w-full p-[10px] h-12 text-base bg-transparent peer' type='text' id='name' name='name' placeholder=' '></input>

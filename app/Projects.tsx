@@ -32,7 +32,7 @@ const Projects = () => {
 
   return (
     <section className='h-screen flex flex-col justify-center items-center gap-10 text-white relative
-    after:content-[""] after:bg-secondary-color after:absolute after:h-[600px] after:w-[600px] after:z-[-1] after:m-0 after:p-0 after:rotate-[10deg]
+    after:content-[""] after:bg-secondary-color after:absolute after:h-full after:w-[3000px] after:z-[-1] after:m-0 after:p-0 after:rotate-[10deg]
       md:after:h-full md:after:w-[3000px] '>
       <h1 className='text-4xl font-bold md:text-7xl text-primary-color'>Projects</h1>
       <div className='w-[90%] md:w-[70%]'>

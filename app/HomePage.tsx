@@ -9,10 +9,11 @@ interface HomePageProps {
 const HomePage = ({ updateSection }: HomePageProps) => {
 
   return (
-    <section className='h-screen w-screen flex flex-col justify-center items-center md:flex-row '>
-      <div className='flex flex-col gap-5 w-[90%] md:w-[50%]'>
+    <section className='h-screen w-screen flex flex-col justify-center items-center md:flex-row md:justify-evenly'>
+      {/* First Half (holds title, text, and contact button) */}
+      <div className='flex flex-col gap-5 w-[90%] md:w-[50%] pl-3 md:pl-0'>
         <h1 className='text-4xl font-bold md:text-7xl text-secondary-color'>Full Stack <br/> Software Engineer</h1>
-        <p>Hi, I&apos;m Jonah Choi. An ingenuitive Software Engineer based in San Diego, CA.</p>
+        <p className='w-full'>Hi, I&apos;m <span className='text-secondary-color font-bold'>Jonah Choi</span>. An ingenuitive Software Engineer based in San Diego, CA.</p>
         <NavLink
           section='Contact'
           updateSection={updateSection}
@@ -25,9 +26,11 @@ const HomePage = ({ updateSection }: HomePageProps) => {
           </button>
         </NavLink>
       </div>
-      <div className='w-[300px] h-[350px] bg-black relative z-10
-      after:content-[""] after:bg-primary-color after:rounded-full after:absolute after:h-[600px] after:w-[600px] after:z-[-1] after:m-0 after:p-0
-      md:after:h-[2000px] md:after:w-[2000px] md:after:top-1/2 md:after:left-1/2 md:after:translate-x-[-15%] md:after:translate-y-[-50%]'>
+      {/* Second Half (holds profile picture and green circle) */}
+      <div className='w-[300px] h-[350px] bg-black relative z-10 bg-transparent
+      after:content-[""] after:bg-primary-color after:rounded-full after:absolute after:h-[400px] after:w-[400px] after:z-[-1] after:m-0 after:p-0 after:translate-x-[-50%] after:top-1/2 after:left-1/2 after:translate-y-[-37%]
+      md:after:h-[1000px] md:after:w-[1000px] md:after:translate-x-[-20%]
+      xl:after:h-[2000px] xl:after:w-[2000px] xl:after:translate-x-[-15%] md:after:translate-y-[-50%]'>
         <div className='h-full w-full overflow-hidden'>
           <Image src='/My project.png' width={500} height={500} alt='Profile picture of Jonah Choi' />
 

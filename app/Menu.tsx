@@ -35,36 +35,36 @@ const Menu = ({ updateSection, currentSection }: MenuProps) => {
   }, [isOpen])
 
   return (
-    <div className='mb-10 w-screen relative md:fixed z-50'>
+    <div className='w-screen relative md:fixed z-50'>
       <NavLink
         section={'Home'}
         updateSection={updateSection}
-        classNames={`absolute left-5 top-0 md:left-20 md:top-20 cursor-pointer text-5xl font-bold transition-color duration-500 ${currentSection === 'Projects' ? 'text-primary-color' : 'text-secondary-color'}`}
+        classNames={`absolute left-5 top-5 text-3xl font-bold md:left-20 md:top-20 md:text-5xl cursor-pointer  transition-color duration-500 ${currentSection === 'Projects' ? 'text-primary-color' : 'text-secondary-color'}`}
       >
         JC
       </NavLink>
       <div className='absolute top-0 right-0 md:top-10 md:right-10 bg-gray-100'>
-        <button className='absolute top-0 right-5 z-[60] md:top-10 md:right-10 flex flex-col justify-center items-center' type='button' onMouseDown={toggleMenu}>
+        <button className='absolute top-5 right-5 z-[60] md:top-10 md:right-10 flex flex-col justify-center items-center' type='button' onMouseDown={toggleMenu}>
           <div className={`h-1 w-9 my-1 transition ease transform duration-300 ${isOpen
             ? "rotate-45 translate-y-3"
             : ""}
-            ${currentSection === 'Contact'
+            ${currentSection === 'Contact' && !isOpen
             ? 'bg-primary-color'
             : 'bg-secondary-color'}`}></div>
           <div className={`h-1 w-9 my-1 transition ease transform duration-300 ${isOpen
             ? 'rotate-45'
             : ''}
-            ${currentSection === 'Contact'
+            ${currentSection === 'Contact' && !isOpen
             ? 'bg-primary-color'
             : 'bg-secondary-color'}`}></div>
           <div className={`h-1 w-9 my-1 transition ease transform duration-300 ${isOpen
             ? "-rotate-45 -translate-y-3"
             : ""}
-            ${currentSection === 'Contact'
+            ${currentSection === 'Contact' && !isOpen
             ? 'bg-primary-color'
             : 'bg-secondary-color'}`}></div>
         </button>
-        {isOpen && <div ref={menuRef} className='h-screen w-screen fixed top-0 left-0 p-20 z-10 md:static md:h-[400px] md:w-[300px] bg-red-100 text-black flex flex-col md:p-10 justify-between text-2xl'>
+        {isOpen && <div ref={menuRef} className='h-screen w-screen fixed top-0 left-0 p-20 z-10 md:static md:h-[400px] md:w-[300px] bg-white text-black flex flex-col md:p-10 justify-between text-2xl'>
           <div className='flex flex-col justify-evenly items-start h-3/4 '>
             <NavLink section={'About'} updateSection={updateSection} classNames='cursor-pointer'>About</NavLink>
             <NavLink section={'Projects'} updateSection={updateSection} classNames='cursor-pointer'>Projects</NavLink>
