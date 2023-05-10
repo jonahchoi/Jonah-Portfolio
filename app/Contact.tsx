@@ -21,7 +21,7 @@ const Contact = () => {
 
   return (
     <section className='h-[75vh] md:h-screen flex flex-col justify-center items-center'>
-      <h1 className='text-4xl font-bold md:text-7xl text-secondary-color'>Contact</h1>
+      <h2 className='text-4xl font-bold md:text-7xl text-secondary-color'>Contact</h2>
       <p className='w-[90%] md:w-[70%] xl:w-[40%] pt-5'>If you want to reach out or just say hello, fill out the form below and I&apos;ll get back to you as soon as I can!</p>
       <form className='w-[90%] md:w-[70%] xl:w-[40%]' ref={formRef} onSubmit={sendEmail}>
         <div className='relative my-[25px]'>
@@ -45,7 +45,7 @@ const Contact = () => {
 
 
         <button type='submit' className='float-right border border-secondary-color text-secondary-color font-bold py-[10px] px-[50px] relative z-10 overflow-hidden
-        after:content-[" "] after:bg-secondary-color after:w-full after:h-full after:absolute after:top-0 after:left-0 after:z-[-1] after:-translate-x-full hover:text-white hover:after:translate-x-0 after:transition-transform after:duration-300 after:focus:bg-blue-800'>Submit</button>
+        after:content-[" "] after:bg-secondary-color after:w-full after:h-full after:absolute after:top-0 after:left-0 after:z-[-1] after:-translate-x-full hover:text-white hover:after:translate-x-0 after:transition-transform after:duration-300 active:after:bg-blue-800'>Submit</button>
       </form>
     </section>
   )

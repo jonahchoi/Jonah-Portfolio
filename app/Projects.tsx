@@ -6,35 +6,35 @@ import { BiCaretLeftCircle, BiCaretRightCircle } from 'react-icons/bi'
 const ProjectInfo = [
   {
     title: 'Braking Friendships',
-    description: `A recreation of the popular board game, Exploding Kittens, featuring online multiplayer, in-game chat, and custom profiles.`,
-    stack: ['JavaScript', 'React', 'HTML', 'CSS', 'Socket.io', 'Framer Motion', 'Node/Express', 'MongoDB'],
+    description: `A faithful recreation of the popular card game, Exploding Kittens, featuring online multiplayer, in-game chat, and custom profiles. Invite up to three friends to play a game with real-time updates and interactive UI.`,
+    collaborators: 'Josh Garza, Hieu Ngo, Fernando Gamboa, Joseph Redmond, Eric Pei',
+    stack: ['JavaScript', 'React', 'HTML', 'CSS', 'TailwindCSS', 'Socket.io', 'Framer Motion', 'Node/Express', 'MongoDB', 'Firebase'],
     image: '/CardAnimation.gif',
-    link: 'https://github.com/jonahchoi/Braking-Friendships',
+    githubLink: 'https://github.com/jonahchoi/Braking-Friendships',
   },
   {
     title: 'This Portfolio (inception?)',
     description: `A web developer portfolio designed and developed by yours truly.`,
     stack: ['JavaScript', 'TypeScript', 'React', 'HTML', 'CSS', 'TailwindCSS', 'Next.js'],
     image: '/PortfolioSS.PNG',
-    link: 'https://github.com/jonahchoi/Jonah-Portfolio',
+    liveLink: 'https://jonahchoi.vercel.app/',
+    githubLink: 'https://github.com/jonahchoi/Jonah-Portfolio',
   },
   {
     title: 'Atelier',
-    description: `A RESTful API for an ecommerce website designed with a microservice architecture.`,
+    description: `A RESTful API for an ecommerce website designed with a microservice architecture. The architecture includes a PostgreSQL database, filled with over 3 million rows using an ETL process, two Node/Express servers with an MVC design, and an NGINX load-balancer.`,
     stack: ['PostgreSQL', 'Node/Express', 'NGINX', 'AWS', 'Loader.io',],
-    image: '/CardAnimation.gif',
-    link: 'https://github.com/jonahchoi/Atelier-QnA-API',
+    image: '/postgres-schema-design.PNG',
+    githubLink: 'https://github.com/jonahchoi/Atelier-QnA-API',
   }
 ]
 
 const Projects = () => {
-
-
   return (
-    <section className='h-screen flex flex-col justify-center items-center gap-10 text-white relative
+    <section className='h-screen flex flex-col justify-center items-center  text-white relative
     after:content-[""] after:bg-secondary-color after:absolute after:h-full after:w-[3000px] after:z-[-1] after:m-0 after:p-0 after:rotate-[10deg]
       md:after:h-full md:after:w-[3000px] '>
-      <h1 className='text-4xl font-bold md:text-7xl text-primary-color'>Projects</h1>
+      <h2 className='text-4xl font-bold md:text-7xl text-primary-color'>Projects</h2>
       <div className='w-[90%] md:w-[70%] p-0 h-1/2'>
         <Carousel
           indicators={false}
@@ -44,12 +44,14 @@ const Projects = () => {
           className=''
         >
           {ProjectInfo.map((project) => (<ProjectBox
-            key={project.link}
+            key={project.githubLink}
             title={project.title}
             description={project.description}
+            collaborators={project.collaborators}
             stack={project.stack}
             image={project.image}
-            link={project.link}
+            liveLink={project.liveLink}
+            githubLink={project.githubLink}
           />))}
         </Carousel>
       </div>

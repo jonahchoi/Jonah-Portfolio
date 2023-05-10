@@ -71,7 +71,7 @@ const TechList = () => {
   ]
 
   return (
-    <section className='w-full m-0 p-0 z-40 flex justify-center items-center gap-5 flex-wrap'>
+    <section className='m-0 p-0 z-40 grid grid-rows-3 grid-cols-3 gap-2'>
       {techList.map((tech) => <TechBox key={tech.name} name={tech.name} icon={tech.icon} color={tech.color} />)}
     </section>
   )

@@ -49,31 +49,44 @@ const Menu = ({ updateSection, currentSection }: MenuProps) => {
             ? "rotate-45 translate-y-3"
             : ""}
             ${currentSection === 'Contact' && !isOpen
-            ? 'bg-primary-color'
+            ? 'bg-secondary-color xl:bg-primary-color'
+            : currentSection === 'Projects' && !isOpen
+            ? 'bg-primary-color xl:bg-secondary-color'
             : 'bg-secondary-color'}`}></div>
           <div className={`h-1 w-9 my-1 transition ease transform duration-300 ${isOpen
             ? 'rotate-45'
             : ''}
             ${currentSection === 'Contact' && !isOpen
-            ? 'bg-primary-color'
-            : 'bg-secondary-color'}`}></div>
+            ? 'bg-secondary-color xl:bg-primary-color'
+            : currentSection === 'Projects' && !isOpen
+            ? 'bg-primary-color xl:bg-secondary-color'
+            : 'bg-secondary-color'}`}
+            ></div>
           <div className={`h-1 w-9 my-1 transition ease transform duration-300 ${isOpen
             ? "-rotate-45 -translate-y-3"
             : ""}
             ${currentSection === 'Contact' && !isOpen
-            ? 'bg-primary-color'
+            ? 'bg-secondary-color xl:bg-primary-color'
+            : currentSection === 'Projects' && !isOpen
+            ? 'bg-primary-color xl:bg-secondary-color'
             : 'bg-secondary-color'}`}></div>
         </button>
-        {isOpen && <div ref={menuRef} className='h-screen w-screen fixed top-0 left-0 p-20 z-10 md:static md:h-[400px] md:w-[300px] bg-white text-black flex flex-col md:p-10 justify-between text-2xl'>
+        {isOpen && <div ref={menuRef} className='h-screen w-screen fixed top-0 left-0 p-20 z-10 drop-shadow-lg md:static md:h-[400px] md:w-[300px] bg-white text-black flex flex-col md:p-10 justify-between text-2xl'>
           <div className='flex flex-col justify-evenly items-start h-3/4 '>
-            <NavLink section={'About'} updateSection={updateSection} classNames='cursor-pointer'>About</NavLink>
-            <NavLink section={'Projects'} updateSection={updateSection} classNames='cursor-pointer'>Projects</NavLink>
-            <NavLink section={'Contact'} updateSection={updateSection} classNames='cursor-pointer'>Contact</NavLink>
+            <NavLink section={'About'} updateSection={updateSection} classNames='cursor-pointer transform duration-300 hover:text-secondary-color hover:translate-y-[-5px]'>About</NavLink>
+            <NavLink section={'Projects'} updateSection={updateSection} classNames='cursor-pointer transform duration-300 hover:text-secondary-color hover:translate-y-[-5px]'>Projects</NavLink>
+            <NavLink section={'Contact'} updateSection={updateSection} classNames='cursor-pointer transform duration-300 hover:text-secondary-color hover:translate-y-[-5px]'>Contact</NavLink>
           </div>
           <div className='flex gap-5 pt-3 justify-between items-center '>
-            <a href='resume' target='_blank'><MdOutlineContactPage title='Resume'/></a>
-            <a href='https://www.linkedin.com/in/jonah-choii/' target='_blank' title='LinkedIn'><RiLinkedinLine /></a>
-            <a href='https://github.com/jonahchoi' target='_blank' title='GitHub'><RiGithubLine /></a>
+            <a href='resume' target='_blank' title='Resume' className='p-1 transform duration-300 hover:text-secondary-color hover:translate-y-[-5px]'>
+              <MdOutlineContactPage />
+            </a>
+            <a href='https://www.linkedin.com/in/jonah-choii/' target='_blank' title='LinkedIn' className='p-1 transform duration-300 hover:text-secondary-color hover:translate-y-[-5px]'>
+              <RiLinkedinLine />
+            </a>
+            <a href='https://github.com/jonahchoi' target='_blank' title='GitHub' className='p-1 transform duration-300 hover:text-secondary-color hover:translate-y-[-5px]'>
+              <RiGithubLine />
+            </a>
           </div>
         </div>}
       </div>
@@ -82,23 +95,3 @@ const Menu = ({ updateSection, currentSection }: MenuProps) => {
 }
 
 export default Menu
-{/* <div
-      className={`${genericHamburgerLine} ${
-        isOpen
-          ? "rotate-45 translate-y-3 opacity-50 group-hover:opacity-100"
-          : "opacity-50 group-hover:opacity-100"
-      }`}
-    />
-    <div
-      className={`${genericHamburgerLine} ${
-        isOpen ? "opacity-0" : "opacity-50 group-hover:opacity-100"
-      }`}
-    />
-    <div
-      className={`${genericHamburgerLine} ${
-        isOpen
-          ? "-rotate-45 -translate-y-3 opacity-50 group-hover:opacity-100"
-          : "opacity-50 group-hover:opacity-100"
-      }`}
-    />
-*/}

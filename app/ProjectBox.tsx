@@ -1,34 +1,46 @@
 import React from 'react'
 import { FiGithub } from 'react-icons/fi'
+import { CgWebsite } from 'react-icons/cg'
 import Image from 'next/image'
 
 interface ProjectProps {
-  title: string,
-  description: string,
-  stack: string[],
-  image: string,
-  link: string
+  title: string;
+  description: string;
+  collaborators?: string;
+  stack: string[];
+  image: string;
+  liveLink?: string;
+  githubLink: string;
 }
 
-const ProjectBox = ({ title, description, stack, image, link}: ProjectProps) => {
+const ProjectBox = ({ title, description, collaborators, stack, image, liveLink, githubLink}: ProjectProps) => {
   // <img src="/docs/images/carousel/carousel-1.svg" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
   return (
-    <div className='flex flex-col justify-center items-center h-full  xl:px-20 xl:flex-row gap-10 p-2'>
+    <div className='flex flex-col justify-center items-center h-full xl:px-20 xl:flex-row gap-10 p-2'>
       <div className='w-[80%] md:w-[70%] xl:w-auto'>
         <Image src={image} width={500} height={500} alt='Screenshot of project website'></Image>
       </div>
       <div className='w-[75%] xl:w-[50%]'>
-        <h2 className='text-3xl'>{title}</h2>
-        <p>{description}</p>
-        <div>
+        <h3 className='text-3xl py-5  '>{title}</h3>
+        <p className='pb-5'>{description}</p>
+        {collaborators && <p className='pb-5'>Collaborators: <span className='italic'>{collaborators}</span></p>}
+        <div className='pb-5'>
           Stack: {stack.map((tech, i) => <span key={i}>{tech}{i < stack.length - 1 && ', '}</span>)}
         </div>
-        <div className='flex text-2xl'>
+        <div className='flex text-2xl gap-5 justify-end'>
+          {liveLink && <a
+            title='Live Link'
+            href={liveLink}
+            target="_blank"
+            className='cursor-pointer p-2 hover:text-primary-color'
+          >
+            <CgWebsite />
+          </a>}
           <a
             title='Github'
-            href={link}
+            href={githubLink}
             target="_blank"
-            className='cursor-pointer'
+            className='cursor-pointer p-2 hover:text-primary-color'
           >
             <FiGithub />
           </a>

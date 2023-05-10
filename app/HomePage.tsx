@@ -20,7 +20,7 @@ const HomePage = ({ updateSection }: HomePageProps) => {
           classNames='self-start'
         >
           <button className='border border-secondary-color text-secondary-color font-bold py-[10px] px-[50px] relative z-10 overflow-hidden self-start cursor-pointer
-          after:content-[" "] after:bg-secondary-color after:w-full after:h-full after:absolute after:top-0 after:left-0 after:z-[-1] after:-translate-x-full hover:text-white hover:after:translate-x-0 after:transition-transform after:duration-300 focus:after:bg-blue-800'>
+          after:content-[" "] after:bg-secondary-color after:w-full after:h-full after:absolute after:top-0 after:left-0 after:z-[-1] after:-translate-x-full hover:text-white hover:after:translate-x-0 after:transition-transform after:duration-300 active:after:bg-blue-800'>
             Say Hello!
 
           </button>
