@@ -16,18 +16,25 @@ const Menu = ({ updateSection }: MenuProps) => {
   }
 
   return (
-    <div className='mb-10 md:fixed top-2 right-2 md:top-10 md:right-14 z-50'>
-      <div className='relative'>
+    <div className='mb-10 w-screen relative bg-gray-200 md:fixed z-50'>
+      <NavLink
+        section={'Home'}
+        updateSection={updateSection}
+        classNames='absolute left-20 top-20 cursor-pointer text-5xl font-bold text-secondary-color'
+      >
+        JC
+      </NavLink>
+      <div className='absolute top-10 right-10'>
         <button className='absolute top-10 right-10 flex flex-col justify-center items-center' type='button' onClick={toggleMenu}>
           <div className={`h-1 w-9 my-1 transition ease transform duration-300 ${isOpen
           ? "rotate-45 translate-y-3 bg-black"
-          : "bg-white"}`}></div>
+          : "bg-secondary-color"}`}></div>
           <div className={`h-1 w-9 my-1 transition ease transform duration-300 ${isOpen
             ? 'rotate-45 bg-black'
-            : 'bg-white'}`}></div>
+            : 'bg-secondary-color'}`}></div>
           <div className={`h-1 w-9 my-1 transition ease transform duration-300 ${isOpen
           ? "-rotate-45 -translate-y-3 bg-black"
-          : "bg-white"}`}></div>
+          : "bg-secondary-color"}`}></div>
         </button>
         {isOpen && <div className='h-[400px] w-[300px] bg-white text-black flex flex-col p-10 justify-between text-2xl'>
           <div className='flex flex-col justify-evenly h-3/4 '>

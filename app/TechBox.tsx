@@ -3,15 +3,16 @@ import { IconType } from 'react-icons/lib'
 import { Interface } from 'readline'
 
 interface TechBoxProps {
-  name: string,
-  icon: ReactElement<IconType>
+  name: string;
+  icon: ReactElement<IconType>;
+  color: string;
 }
 
-const TechBox = ({name, icon}: TechBoxProps) => {
+const TechBox = ({name, icon, color}: TechBoxProps) => {
   return (
-    <div>
-      <div className='text-6xl'>{icon}</div>
-      {/* {name} */}
+    <div className='flex flex-col justify-center items-center'>
+      <div className={`text-6xl ${color}`}>{icon}</div>
+      <p className=''>{name}</p>
     </div>
   )
 }
