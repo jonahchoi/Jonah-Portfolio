@@ -117,7 +117,7 @@ const Page = (): JSX.Element => {
     <div className=''>
       {!isLoading &&
       <>
-        <Menu updateSection={updateSection} />
+        <Menu updateSection={updateSection} currentSection={currentSection} />
         {!isMobile && <Nav updateSection={updateSection} currentSection={currentSection} />}
         <Element name="Home" data-section="Home">
           <HomePage updateSection={updateSection} />

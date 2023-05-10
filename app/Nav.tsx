@@ -11,7 +11,7 @@ interface NavProps {
 const Nav = ({updateSection, currentSection}: NavProps) => {
 
   return (
-    <div className={`fixed top-1/2 translate-y-[-50%] right-20  text-4xl z-50 transition-color duration-300 ${currentSection === 'Projects' ? 'text-primary-color' : 'text-secondary-color'}`}>
+    <div className={`fixed top-1/2 translate-y-[-50%] right-20  text-4xl z-40 transition-color duration-300 ${currentSection === 'Projects' ? 'text-primary-color' : 'text-secondary-color'}`}>
       <ul className='flex flex-col items-center'>
         {sectionNames
         .map((section) => (
