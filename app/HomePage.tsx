@@ -9,11 +9,11 @@ interface HomePageProps {
 const HomePage = ({ updateSection }: HomePageProps) => {
 
   return (
-    <section className='h-screen w-screen flex flex-col justify-center items-center md:flex-row md:justify-evenly'>
+    <section className='h-screen w-screen flex flex-col justify-center items-center md:flex-row md:justify-evenly xl:justify-center'>
       {/* First Half (holds title, text, and contact button) */}
-      <div className='flex flex-col gap-5 w-[90%] md:w-[50%] pl-3 md:pl-0'>
+      <div className='flex flex-col gap-5 w-[90%] md:w-[35%] xl:w-[50%] pl-3 md:pl-0'>
         <h1 className='text-4xl font-bold md:text-7xl text-secondary-color'>Full Stack <br/> Software Engineer</h1>
-        <p className='w-full'>Hi, I&apos;m <span className='text-secondary-color font-bold'>Jonah Choi</span>. An ingenuitive Software Engineer based in San Diego, CA.</p>
+        <p className='w-[75%] text-xl'>Hi, I&apos;m <span className='text-secondary-color font-bold text-2xl'>Jonah Choi</span>. An ingenuitive Software Engineer based in San Diego, CA.</p>
         <NavLink
           section='Contact'
           updateSection={updateSection}
@@ -32,7 +32,7 @@ const HomePage = ({ updateSection }: HomePageProps) => {
       md:after:h-[1000px] md:after:w-[1000px] md:after:translate-x-[-20%]
       xl:after:h-[2000px] xl:after:w-[2000px] xl:after:translate-x-[-15%] md:after:translate-y-[-50%]'>
         <div className='h-full w-full overflow-hidden'>
-          <Image src='/My project.png' width={500} height={500} alt='Profile picture of Jonah Choi' />
+          <Image src='/profilePic.png' width={500} height={500} alt='Profile picture of Jonah Choi' />
 
         </div>
       </div>

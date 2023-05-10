@@ -3,7 +3,7 @@ import TechList from './TechList'
 
 const About = () => {
   return (
-    <section className='h-screen flex flex-col justify-center items-center'>
+    <section className='h-[75vh] md:h-screen flex flex-col justify-center items-center'>
 
       <h1 className='text-4xl font-bold md:text-7xl text-secondary-color'>About Me</h1>
       <div className='flex justify-center items-center'>
