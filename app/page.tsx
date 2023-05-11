@@ -4,9 +4,9 @@ import HomePage from './HomePage';
 import About from './About';
 import Projects from './Projects';
 import Contact from './Contact';
-import TechList from './TechList';
 import Nav from './Nav';
 import Menu from './Menu';
+import Footer from './Footer';
 import { Element, scroller } from 'react-scroll';
 import { sectionNames } from '../src/tools/sections.js'
 
@@ -134,6 +134,10 @@ const Page = (): JSX.Element => {
         <Element name="Contact" data-section="Contact">
           <Contact />
         </Element>
+        <Element name="Footer" data-section="Footer">
+          <Footer updateSection={updateSection} />
+        </Element>
+
       </>}
     </div>
   );

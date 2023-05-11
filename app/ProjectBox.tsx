@@ -16,7 +16,7 @@ interface ProjectProps {
 const ProjectBox = ({ title, description, collaborators, stack, image, liveLink, githubLink}: ProjectProps) => {
   // <img src="/docs/images/carousel/carousel-1.svg" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
   return (
-    <div className='flex flex-col justify-center items-center h-full xl:px-20 xl:flex-row gap-10 p-2'>
+    <div className='flex flex-col justify-center items-center h-full xl:px-20 xl:flex-row gap-0 xl:gap-10 p-2'>
       <div className='w-[80%] md:w-[70%] xl:w-auto'>
         <Image src={image} width={500} height={500} alt='Screenshot of project website'></Image>
       </div>

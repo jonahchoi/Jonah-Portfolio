@@ -1,6 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react'
 import NavLink from './NavLink';
-import { FiGithub, FiLinkedin } from 'react-icons/fi'
 import { RiGithubLine, RiLinkedinLine } from 'react-icons/ri'
 import { MdOutlineContactPage,  } from 'react-icons/md'
 
@@ -39,7 +38,7 @@ const Menu = ({ updateSection, currentSection }: MenuProps) => {
       <NavLink
         section={'Home'}
         updateSection={updateSection}
-        classNames={`absolute left-5 top-5 text-3xl font-bold md:left-20 md:top-20 md:text-5xl cursor-pointer  transition-color duration-500 ${currentSection === 'Projects' ? 'text-primary-color' : 'text-secondary-color'}`}
+        classNames={`absolute left-5 top-5 text-3xl font-bold md:left-20 md:top-20 md:text-5xl cursor-pointer  transition-color duration-500 ${currentSection === 'Projects' || currentSection === 'Footer' ? 'text-primary-color' : 'text-secondary-color'}`}
       >
         JC
       </NavLink>
@@ -48,7 +47,9 @@ const Menu = ({ updateSection, currentSection }: MenuProps) => {
           <div className={`h-1 w-9 my-1 transition ease transform duration-300 ${isOpen
             ? "rotate-45 translate-y-3"
             : ""}
-            ${currentSection === 'Contact' && !isOpen
+            ${currentSection === 'Footer' && !isOpen
+            ? 'bg-primary-color'
+            : currentSection === 'Contact' || currentSection === 'Footer' && !isOpen
             ? 'bg-secondary-color xl:bg-primary-color'
             : currentSection === 'Projects' && !isOpen
             ? 'bg-primary-color xl:bg-secondary-color'
@@ -56,7 +57,9 @@ const Menu = ({ updateSection, currentSection }: MenuProps) => {
           <div className={`h-1 w-9 my-1 transition ease transform duration-300 ${isOpen
             ? 'rotate-45'
             : ''}
-            ${currentSection === 'Contact' && !isOpen
+            ${currentSection === 'Footer' && !isOpen
+            ? 'bg-primary-color'
+            : currentSection === 'Contact' && !isOpen
             ? 'bg-secondary-color xl:bg-primary-color'
             : currentSection === 'Projects' && !isOpen
             ? 'bg-primary-color xl:bg-secondary-color'
@@ -65,7 +68,9 @@ const Menu = ({ updateSection, currentSection }: MenuProps) => {
           <div className={`h-1 w-9 my-1 transition ease transform duration-300 ${isOpen
             ? "-rotate-45 -translate-y-3"
             : ""}
-            ${currentSection === 'Contact' && !isOpen
+            ${currentSection === 'Footer' && !isOpen
+            ? 'bg-primary-color'
+            : currentSection === 'Contact' && !isOpen
             ? 'bg-secondary-color xl:bg-primary-color'
             : currentSection === 'Projects' && !isOpen
             ? 'bg-primary-color xl:bg-secondary-color'

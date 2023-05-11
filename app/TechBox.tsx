@@ -11,7 +11,7 @@ interface TechBoxProps {
 const TechBox = ({name, icon, color}: TechBoxProps) => {
   return (
     <div className='flex flex-col justify-center items-center'>
-      <div className={`text-6xl ${color}`}>{icon}</div>
+      <div className={`text-4xl xl:text-6xl ${color}`}>{icon}</div>
       <p className=''>{name}</p>
     </div>
   )
