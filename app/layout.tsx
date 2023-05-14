@@ -1,5 +1,6 @@
 import '@/styles/globals.css'
 import '@/styles/styles.css'
+import { Analytics } from '@vercel/analytics/react';
 
 export const metadata = {
   title: 'Jonah Choi',
@@ -19,7 +20,10 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin='anonymous' />
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet" />
       </head>
-      <body>{children}</body>
+      <body>
+        {children}
+        <Analytics />
+      </body>
     </html>
   )
 }
