@@ -1,8 +1,7 @@
-import React, { useState } from 'react'
+import React from 'react'
 import ProjectBox from './ProjectBox'
 import { Carousel } from 'flowbite-react'
 import { BiCaretLeftCircle, BiCaretRightCircle } from 'react-icons/bi'
-import { ContainerVariant, ChildrenVariant } from '@/src/constants/animationVariants'
 
 const ProjectInfo = [
   {
@@ -10,7 +9,7 @@ const ProjectInfo = [
     description: `A faithful recreation of the popular card game, Exploding Kittens, featuring online multiplayer, in-game chat, and custom profiles. Invite up to three friends to play a game with real-time updates and interactive UI.`,
     collaborators: 'Josh Garza, Hieu Ngo, Fernando Gamboa, Joseph Redmond, Eric Pei',
     stack: ['JavaScript', 'React', 'HTML', 'CSS', 'TailwindCSS', 'Socket.io', 'Framer Motion', 'Node/Express', 'MongoDB', 'Firebase'],
-    image: '',
+    image: '/CardAnimation.gif',
     githubLink: 'https://github.com/jonahchoi/Braking-Friendships',
   },
   {

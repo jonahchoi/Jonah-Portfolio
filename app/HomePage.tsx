@@ -2,7 +2,7 @@ import React from 'react'
 import Image from 'next/image'
 import NavLink from './NavLink'
 import { motion } from 'framer-motion'
-import { ContainerVariant, DelayContainerVariant, ChildrenVariant } from '@/src/constants/animationVariants'
+import { DelayContainerVariant, ChildrenVariant } from '@/src/constants/animationVariants'
 interface HomePageProps {
   updateSection: Function
 }
