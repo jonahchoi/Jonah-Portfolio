@@ -34,7 +34,7 @@ const Menu = ({ updateSection, currentSection }: MenuProps) => {
   }, [isOpen])
 
   return (
-    <div className='w-screen relative md:fixed z-50'>
+    <div className='w-screen relative md:fixed z-40'>
       <NavLink
         section={'Home'}
         updateSection={updateSection}

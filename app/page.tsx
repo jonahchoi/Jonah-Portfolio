@@ -8,7 +8,8 @@ import Nav from './Nav';
 import Menu from './Menu';
 import Footer from './Footer';
 import { Element, scroller } from 'react-scroll';
-import { sectionNames } from '../src/tools/sections.js'
+import { sectionNames } from '@/src/constants/sections'
+import LoadingScreen from '@/src/components/LoadingScreen'
 
 interface SectionPositions {
   [key: string]: {
@@ -23,6 +24,7 @@ const Page = (): JSX.Element => {
   const [lastScrollTime, setLastScrollTime] = useState<number>(0);
   const [isMobile, setisMobile] = useState<boolean>(false);
   const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [showLoadingScreen, setShowLoadingScreen] = useState<boolean>(true);
 
   const updateSection = (section: string): void => {
     setCurrentSection(section)
@@ -103,7 +105,14 @@ const Page = (): JSX.Element => {
   }, []);
 
   useEffect(() => {
-    if (!isMobile) {
+    if(!isLoading) {
+      let timeout = setTimeout(() => setShowLoadingScreen(false), 4000);
+      return () => clearTimeout(timeout);
+    }
+  }, [isLoading]);
+
+  useEffect(() => {
+    if (!isMobile && !showLoadingScreen) {
       console.log('isnotmobile')
       window.addEventListener('wheel', handleWheel, { passive: false });
     }
@@ -111,10 +120,11 @@ const Page = (): JSX.Element => {
     return () => {
       window.removeEventListener('wheel', handleWheel);
     };
-  }, [handleWheel, isMobile]);
+  }, [handleWheel, isMobile, showLoadingScreen]);
 
   return (
-    <div className=''>
+    <>
+      {showLoadingScreen && <LoadingScreen />}
       {!isLoading &&
       <>
         <Menu updateSection={updateSection} currentSection={currentSection} />
@@ -125,9 +135,6 @@ const Page = (): JSX.Element => {
         <Element name="About" data-section="About">
           <About />
         </Element>
-        {/* <Element name="Tech" data-section="Tech">
-          <TechList />
-        </Element> */}
         <Element name="Projects" data-section="Projects">
           <Projects />
         </Element>
@@ -137,9 +144,8 @@ const Page = (): JSX.Element => {
         <Element name="Footer" data-section="Footer">
           <Footer updateSection={updateSection} />
         </Element>
-
       </>}
-    </div>
+    </>
   );
 };
 

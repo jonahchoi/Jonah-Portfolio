@@ -5,7 +5,7 @@ interface NavLinkProps {
   section: string;
   updateSection: Function;
   children: React.ReactNode;
-  classNames: string;
+  classNames?: string;
 }
 
 const NavLink = ({section, updateSection, children, classNames}: NavLinkProps) => {

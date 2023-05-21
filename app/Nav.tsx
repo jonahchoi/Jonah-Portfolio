@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import NavLink from './NavLink'
 import { RxCommit } from 'react-icons/rx'
-import { sectionNames } from '@/src/tools/sections'
+import { sectionNames } from '@/src/constants/sections.js'
 
 interface NavProps {
   updateSection: Function;

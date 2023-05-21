@@ -1,5 +1,7 @@
 import React, { useRef } from 'react'
 import emailjs from '@emailjs/browser';
+import { motion } from 'framer-motion'
+import { ContainerVariant, ChildrenVariant } from '@/src/constants/animationVariants'
 
 
 const Contact = () => {
@@ -20,10 +22,31 @@ const Contact = () => {
   };
 
   return (
-    <section className='h-[75vh] md:h-screen flex flex-col justify-center items-center'>
-      <h2 className='text-4xl font-bold md:text-7xl text-secondary-color'>Contact</h2>
-      <p className='w-[90%] md:w-[70%] xl:w-[40%] pt-5'>If you want to reach out or just say hello, fill out the form below and I&apos;ll get back to you as soon as I can!</p>
-      <form className='w-[90%] md:w-[70%] xl:w-[40%]' ref={formRef} onSubmit={sendEmail}>
+    <motion.section
+      className='h-[75vh] md:h-screen flex flex-col justify-center items-center'
+      variants={ContainerVariant}
+      initial='initial'
+      whileInView='inView'
+      viewport={{ once: true }}
+    >
+      <motion.h2
+        className='text-4xl font-bold md:text-7xl text-secondary-color'
+        variants={ChildrenVariant}
+      >
+        Contact
+      </motion.h2>
+      <motion.p
+        className='w-[90%] md:w-[70%] xl:w-[40%] pt-5'
+        variants={ChildrenVariant}
+      >
+        If you want to reach out or just say hello, fill out the form below and I&apos;ll get back to you as soon as I can!
+      </motion.p>
+      <motion.form
+        className='w-[90%] md:w-[70%] xl:w-[40%]'
+        ref={formRef}
+        onSubmit={sendEmail}
+        variants={ChildrenVariant}
+      >
         <div className='relative my-[25px]'>
           <input className='border-[#808080] border w-full p-[10px] h-12 text-base bg-transparent peer' type='text' id='name' name='name' placeholder=' ' required></input>
           <label className='text-base bg-[#f9f9f9] text-[#808080] absolute pointer-events-none left-[5px] duration-500 transform -translate-y-4 top-1 z-10 origin-[0] px-[5px] m-0
@@ -46,8 +69,8 @@ const Contact = () => {
 
         <button type='submit' className='float-right border border-secondary-color text-secondary-color font-bold py-[10px] px-[50px] relative z-10 overflow-hidden
         after:content-[" "] after:bg-secondary-color after:w-full after:h-full after:absolute after:top-0 after:left-0 after:z-[-1] after:-translate-x-full hover:text-white hover:after:translate-x-0 after:transition-transform after:duration-300 active:after:bg-blue-800'>Submit</button>
-      </form>
-    </section>
+      </motion.form>
+    </motion.section>
   )
 }
 

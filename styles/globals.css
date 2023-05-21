@@ -14,8 +14,8 @@
   --background-end-rgb: 255, 255, 255;
 
   --primary-color: #BBF7D0;
-  /* --secondary-color: #2E5339; */
   --secondary-color: #345995;
+  --background-color: #f9f9f9;
 
   --primary-glow: conic-gradient(
     from 180deg at 50% 50%,
@@ -95,7 +95,7 @@ body {
 
 body {
   color: black;
-  background-color: #f9f9f9;
+  background-color: var(--background-color);
 }
 
 a {
