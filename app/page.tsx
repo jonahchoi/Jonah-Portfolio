@@ -1,5 +1,5 @@
 'use client';
-import React, { useCallback, useEffect, useLayoutEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import HomePage from './HomePage';
 import About from './About';
 import Projects from './Projects';

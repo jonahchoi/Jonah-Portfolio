@@ -53,8 +53,13 @@ const HomePage = ({ updateSection }: HomePageProps) => {
       md:after:h-[1000px] md:after:w-[1000px] md:after:translate-x-[-20%]
       xl:after:h-[2000px] xl:after:w-[2000px] xl:after:translate-x-[-15%] md:after:translate-y-[-50%]'>
         <div className='h-full w-full overflow-hidden'>
-          <Image src='/profilePic.png' width={500} height={500} alt='Profile picture of Jonah Choi' />
-
+          <Image
+            src='/profilePic.png'
+            width={500}
+            height={500}
+            alt='Profile picture of Jonah Choi'
+            priority={true}
+          />
         </div>
       </div>
     </section>

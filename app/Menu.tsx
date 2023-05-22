@@ -43,7 +43,12 @@ const Menu = ({ updateSection, currentSection }: MenuProps) => {
         JC
       </NavLink>
       <div className='absolute top-0 right-0 md:top-10 md:right-10 bg-gray-100'>
-        <button className='absolute top-5 right-5 z-[60] md:top-10 md:right-10 flex flex-col justify-center items-center' type='button' onMouseDown={toggleMenu}>
+        <button
+          className='absolute top-5 right-5 z-[60] md:top-10 md:right-10 flex flex-col justify-center items-center'
+          type='button'
+          onMouseDown={toggleMenu}
+          aria-label="Toggle Menu"
+        >
           <div className={`h-1 w-9 my-1 transition ease transform duration-300 ${isOpen
             ? "rotate-45 translate-y-3"
             : ""}
