@@ -11,7 +11,7 @@ const Footer = ({ updateSection }: FooterProps) => {
   return (
     <div className='h-1/2 md:h-screen bg-secondary-color text-primary-color p-5 md:p-40 xl:p-80 md:text-2xl'>
       <div className='flex flex-col justify-evenly items-start gap-5 py-5 md:gap-10 md:py-14'>
-        <h4 className='text-gray-200'>CONTACT ME</h4>
+        <h2 className='text-gray-200'>CONTACT ME</h2>
         <NavLink section={'Contact'} updateSection={updateSection} classNames='cursor-pointer transform duration-300 hover:translate-y-[-5px]'>Send a Message</NavLink>
         <a href='mailto:cjonah227@gmail.com' className='cursor-pointer transform duration-300 hover:translate-y-[-5px]'>cjonah227@gmail.com</a>
       </div>
