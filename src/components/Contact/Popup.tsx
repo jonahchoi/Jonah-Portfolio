@@ -7,7 +7,7 @@ interface PopupProps {
 const Popup = ({ resetForm }: PopupProps) => {
   return (
     <div
-      className='w-[90%] md:w-[50%] xl:w-[25%] flex flex-col justify-start items-start gap-2 p-[10px] border border-[#808080] rounded-3'
+      className='w-[90%] md:w[75%] m-auto mt-20 flex flex-col justify-start items-start gap-2 p-[10px] border border-[#808080] rounded-3'
     >
       <h2 className='text-2xl text-secondary-color'>Message sent!</h2>
 
