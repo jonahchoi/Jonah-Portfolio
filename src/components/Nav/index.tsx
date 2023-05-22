@@ -4,7 +4,7 @@ import { RxCommit } from 'react-icons/rx'
 import { sectionNames } from '@/src/constants/sections.js'
 
 interface NavProps {
-  updateSection: Function;
+  updateSection: (section: string) => void;
   currentSection: string
 }
 

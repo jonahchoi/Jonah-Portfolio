@@ -1,10 +1,10 @@
 import React from 'react'
-import NavLink from './NavLink'
+import NavLink from '../Nav/NavLink'
 import { RiGithubLine, RiLinkedinLine } from 'react-icons/ri'
 import { MdOutlineContactPage,  } from 'react-icons/md'
 
 interface FooterProps {
-  updateSection: Function;
+  updateSection: (section: string) => void;
 }
 
 const Footer = ({ updateSection }: FooterProps) => {

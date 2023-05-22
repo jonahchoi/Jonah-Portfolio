@@ -1,5 +1,5 @@
 import React from 'react'
-import TechList from './TechList'
+import TechList from '../Tech'
 import { motion } from 'framer-motion'
 import { ContainerVariant, ChildrenVariant } from '@/src/constants/animationVariants'
 

@@ -1,10 +1,11 @@
 import React from 'react'
 import Image from 'next/image'
-import NavLink from './NavLink'
+import NavLink from '../Nav/NavLink'
 import { motion } from 'framer-motion'
 import { DelayContainerVariant, ChildrenVariant } from '@/src/constants/animationVariants'
+
 interface HomePageProps {
-  updateSection: Function
+  updateSection: (section: string) => void;
 }
 
 const MotionNavLink = motion(NavLink);

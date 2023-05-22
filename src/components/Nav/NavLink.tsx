@@ -3,7 +3,7 @@ import { Link } from 'react-scroll'
 
 interface NavLinkProps {
   section: string;
-  updateSection: Function;
+  updateSection: (section: string) => void;
   children: React.ReactNode;
   classNames?: string;
 }

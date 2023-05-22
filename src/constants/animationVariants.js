@@ -28,7 +28,7 @@ const ChildrenVariant = {
       type: 'spring',
       damping: 16
     }
-  }
+  },
 }
 
 module.exports = { ContainerVariant, DelayContainerVariant, ChildrenVariant };

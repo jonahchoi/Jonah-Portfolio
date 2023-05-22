@@ -1,15 +1,15 @@
 'use client';
 import React, { useCallback, useEffect, useState } from 'react';
-import HomePage from './HomePage';
-import About from './About';
-import Projects from './Projects';
-import Contact from './Contact';
-import Nav from './Nav';
-import Menu from './Menu';
-import Footer from './Footer';
-import { Element, scroller } from 'react-scroll';
-import { sectionNames } from '@/src/constants/sections'
+import HomePage from '@/src/components/HomePage';
+import About from '@/src/components/About';
+import Projects from '@/src/components/Projects';
+import Contact from '@/src/components/Contact';
+import Nav from '@/src/components/Nav';
+import Menu from '@/src/components/Menu';
+import Footer from '@/src/components/Footer/Footer';
 import LoadingScreen from '@/src/components/LoadingScreen'
+import { sectionNames } from '@/src/constants/sections'
+import { Element, scroller } from 'react-scroll';
 
 interface SectionPositions {
   [key: string]: {
@@ -113,7 +113,6 @@ const Page = (): JSX.Element => {
 
   useEffect(() => {
     if (!isMobile && !showLoadingScreen) {
-      console.log('isnotmobile')
       window.addEventListener('wheel', handleWheel, { passive: false });
     }
 

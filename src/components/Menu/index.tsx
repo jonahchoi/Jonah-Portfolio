@@ -1,10 +1,10 @@
 import React, { useEffect, useRef, useState } from 'react'
-import NavLink from './NavLink';
+import NavLink from '../Nav/NavLink';
 import { RiGithubLine, RiLinkedinLine } from 'react-icons/ri'
 import { MdOutlineContactPage,  } from 'react-icons/md'
 
 interface MenuProps {
-  updateSection: Function;
+  updateSection: (section: string) => void;
   currentSection: string;
 }
 
