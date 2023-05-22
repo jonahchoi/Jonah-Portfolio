@@ -18,7 +18,6 @@ interface SectionPositions {
   };
 }
 
-
 const Page = (): JSX.Element => {
   const [currentSection, setCurrentSection] = useState<string>('');
   const [lastScrollTime, setLastScrollTime] = useState<number>(0);
@@ -29,6 +28,14 @@ const Page = (): JSX.Element => {
   const updateSection = (section: string): void => {
     setCurrentSection(section)
   }
+
+  const handleSectionChange = useCallback((to: string) => {
+    scroller.scrollTo(to, {
+      duration: 300,
+      smooth: 'easeInOutQuart',
+      ignoreCancelEvents: true
+    });
+  }, []);
 
   const handleWheel = useCallback((event: WheelEvent) => {
     event.preventDefault();
@@ -42,7 +49,6 @@ const Page = (): JSX.Element => {
     }
 
     const delta = event.deltaY;
-    const scrollPosition = window.scrollY;
     let currentIndex = sectionNames.indexOf(currentSection);
     let newIndex = currentIndex;
 
@@ -57,14 +63,28 @@ const Page = (): JSX.Element => {
       setCurrentSection(newCurrentSection);
       handleSectionChange(newCurrentSection);
     }
-  }, [currentSection, lastScrollTime]);
+  }, [currentSection, lastScrollTime, handleSectionChange]);
 
-  const handleSectionChange = useCallback((to: string) => {
-    scroller.scrollTo(to, {
-      duration: 300,
-      smooth: 'easeInOutQuart',
-    });
-  }, []);
+  const handleKey = useCallback((event: KeyboardEvent) => {
+    let currentIndex = sectionNames.indexOf(currentSection);
+    let newIndex = currentIndex;
+
+    if ((event.key === 'ArrowDown' || event.key === 'PageDown') && currentIndex < sectionNames.length - 1) {
+      newIndex = currentIndex + 1
+    } else if ((event.key === 'ArrowUp' || event.key === 'PageUp') && currentIndex > 0) {
+      newIndex = currentIndex - 1
+    } else {
+      return;
+    }
+
+    if (newIndex !== currentIndex) {
+      const newCurrentSection = sectionNames[newIndex];
+      setCurrentSection(newCurrentSection);
+      handleSectionChange(newCurrentSection);
+  }
+
+  }, [currentSection, handleSectionChange])
+
 
   function handleWindowSizeChange() {
     setisMobile(window.innerWidth < 768);
@@ -114,10 +134,12 @@ const Page = (): JSX.Element => {
   useEffect(() => {
     if (!isMobile && !showLoadingScreen) {
       window.addEventListener('wheel', handleWheel, { passive: false });
+      window.addEventListener('keydown', handleKey);
     }
 
     return () => {
       window.removeEventListener('wheel', handleWheel);
+      window.removeEventListener('keydown', handleKey);
     };
   }, [handleWheel, isMobile, showLoadingScreen]);
 

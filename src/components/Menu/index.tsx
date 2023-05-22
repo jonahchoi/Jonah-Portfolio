@@ -9,7 +9,7 @@ interface MenuProps {
 }
 
 const Menu = ({ updateSection, currentSection }: MenuProps) => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState<boolean>(false);
   const menuRef = useRef<HTMLDivElement>(null);
 
   const toggleMenu = () => {
