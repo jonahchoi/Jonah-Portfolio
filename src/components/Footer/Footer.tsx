@@ -29,7 +29,7 @@ const Footer = ({ updateSection }: FooterProps) => {
       </div>
       <div className="flex border-t-2 border-primary-color my-5 pt-5 justify-between items-center ">
         <p className="flex justify-center items-center m-0">
-          <LiaCopyrightSolid /> Jonah Choi 2023
+          <LiaCopyrightSolid />&nbsp;Jonah Choi 2023
         </p>
         <div className="flex gap-5 pt-3 justify-between items-center ">
           <a

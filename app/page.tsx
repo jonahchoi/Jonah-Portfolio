@@ -9,7 +9,7 @@ import Menu from "@/src/components/Menu";
 import Footer from "@/src/components/Footer/Footer";
 import LoadingScreen from "@/src/components/LoadingScreen";
 import { sectionNames } from "@/src/constants/sections";
-import { Element, scroller } from "react-scroll";
+import { Element, scroller, animateScroll as scroll } from "react-scroll";
 
 interface SectionPositions {
   [key: string]: {
@@ -129,7 +129,7 @@ const Page = (): JSX.Element => {
   }, [isMobile, isLoading]);
 
   useEffect(() => {
-    scroller.scrollTo("Home", { duration: 0 });
+    scroll.scrollToTop();
     handleWindowSizeChange();
     setIsLoading(false);
     window.addEventListener("resize", handleWindowSizeChange);
