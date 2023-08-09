@@ -1,62 +1,78 @@
-import React from 'react'
-import TechBox from './TechBox'
-import { DiJsBadge, DiReact, DiNodejsSmall, DiHtml5, DiCss3, DiMysql, DiPostgresql, DiMongodb } from 'react-icons/di'
-import {IoLogoFirebase} from 'react-icons/io5'
+import React from "react";
+import TechBox from "./TechBox";
+import {
+  DiJsBadge,
+  DiReact,
+  DiNodejsSmall,
+  DiHtml5,
+  DiCss3,
+  DiMysql,
+  DiPostgresql,
+  DiMongodb,
+} from "react-icons/di";
+import { IoLogoFirebase } from "react-icons/io5";
 
 const TechList = () => {
   const techList = [
     {
-      name: 'JavaScript',
+      name: "JavaScript",
       icon: <DiJsBadge />,
-      color: 'text-yellow-300'
+      color: "text-yellow-300",
     },
     {
-      name: 'HTML5',
+      name: "HTML5",
       icon: <DiHtml5 />,
-      color: 'text-orange-600'
+      color: "text-orange-600",
     },
     {
-      name: 'CSS3',
+      name: "CSS3",
       icon: <DiCss3 />,
-      color: 'text-blue-600'
+      color: "text-blue-600",
     },
     {
-      name: 'React',
+      name: "React",
       icon: <DiReact />,
-      color: 'text-blue-400'
+      color: "text-blue-400",
     },
     {
-      name: 'Node.js',
+      name: "Node.js",
       icon: <DiNodejsSmall />,
-      color: 'text-green-600'
+      color: "text-green-600",
     },
     {
-      name: 'MySQL',
+      name: "MySQL",
       icon: <DiMysql />,
-      color: 'text-blue-800'
+      color: "text-blue-800",
     },
     {
-      name: 'PostgreSQL',
+      name: "PostgreSQL",
       icon: <DiPostgresql />,
-      color: 'text-blue-800'
+      color: "text-blue-800",
     },
     {
-      name: 'MongoDB',
+      name: "MongoDB",
       icon: <DiMongodb />,
-      color: 'text-green-600'
+      color: "text-green-600",
     },
     {
-      name: 'Firebase',
+      name: "Firebase",
       icon: <IoLogoFirebase />,
-      color: 'text-yellow-400'
+      color: "text-yellow-400",
     },
-  ]
+  ];
 
   return (
-    <section className='m-0 p-0 z-40 grid grid-rows-3 grid-cols-3 gap-0 xl:gap-2'>
-      {techList.map((tech) => <TechBox key={tech.name} name={tech.name} icon={tech.icon} color={tech.color} />)}
+    <section className="m-0 p-0 z-40 grid grid-rows-3 grid-cols-3 gap-0 xl:gap-2">
+      {techList.map((tech) => (
+        <TechBox
+          key={tech.name}
+          name={tech.name}
+          icon={tech.icon}
+          color={tech.color}
+        />
+      ))}
     </section>
-  )
-}
+  );
+};
 
-export default TechList
+export default TechList;

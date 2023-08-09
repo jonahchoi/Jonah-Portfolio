@@ -1,5 +1,5 @@
-import React from 'react'
-import { Link } from 'react-scroll'
+import React from "react";
+import { Link } from "react-scroll";
 
 interface NavLinkProps {
   section: string;
@@ -8,18 +8,23 @@ interface NavLinkProps {
   classNames?: string;
 }
 
-const NavLink = ({section, updateSection, children, classNames}: NavLinkProps) => {
+const NavLink = ({
+  section,
+  updateSection,
+  children,
+  classNames,
+}: NavLinkProps) => {
   return (
     <Link
       to={section}
       smooth={true}
       duration={300}
-      onClick={()=>updateSection(section)}
+      onClick={() => updateSection(section)}
       className={classNames}
     >
       {children}
     </Link>
-  )
-}
+  );
+};
 
-export default NavLink
+export default NavLink;
