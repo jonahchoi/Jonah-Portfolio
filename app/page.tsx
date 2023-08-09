@@ -129,7 +129,7 @@ const Page = (): JSX.Element => {
   }, [isMobile, isLoading]);
 
   useEffect(() => {
-    scroll.scrollToTop();
+    scroll.scrollToTop({ smooth: false, duration: 0, ignoreCancelEvents: true});
     handleWindowSizeChange();
     setIsLoading(false);
     window.addEventListener("resize", handleWindowSizeChange);
